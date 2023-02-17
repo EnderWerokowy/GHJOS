@@ -17,4 +17,4 @@ HexaOS: Ten system nie jest częścią systemu HexaOS ani żadną jego edycją/d
 Copyright ©️ GHJ-EU.ML 2022. All rights reserved
 Project owned by Werokowy, and GHJ™️ Group
 
-W razie wszelkich problemow skontaktuj sie ze mna na moim Discordzie (https://dc.ghj-eu.ml) lub na maila: ghjos@ghj-eu.ml
+W razie wszelkich problemow skontaktuj sie ze mna na moim Discordzie (https://dc.legendmc.pl) lub na maila: ghjeuam@gmail.com / support@legendmc.pl
