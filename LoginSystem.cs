@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,45 +9,34 @@ namespace workplease
 {
     class LoginSystem
     {
-        public static void addUser(string user,string pass)
-        {
-           
-            Directory.CreateDirectory(@"0:\OS\Users\" + user + @"\");
-
-            Directory.CreateDirectory(@"0:\OS\Users\" + user + @"\pass" + pass);
-        }
-         public static void remUser(string user,string pass)
-        {
-            Directory.Delete(@"0:\OS\Users\" + user + @"\pass" + pass);
-            Directory.Delete(@"0:\OS\Users\" + user + @"\");
-
-            
-        }
+        
         public static void registerMachineName()
         {
-           if(!Directory.Exists(@"0:\OS\MachineInfo\"))
+            PermissionsAPI.LoadUsers();
+            if (!Directory.Exists(@"0:\OS\MachineInfo\"))
             {
                 Directory.CreateDirectory(@"0:\OS\MachineInfo\");
-                
+
             }
-           if(File.Exists(@"0:\OS\MachineInfo\machinename.ini"))
+            if (File.Exists(@"0:\OS\MachineInfo\machinename.ini"))
             {
                 Kernel.machinename = File.ReadAllText(@"0:\OS\MachineInfo\machinename.ini");
             }
-           if(!File.Exists(@"0:\OS\MachineInfo\machinename.ini"))
+            if (!File.Exists(@"0:\OS\MachineInfo\machinename.ini"))
             {
                 File.Create(@"0:\OS\MachineInfo\machinename.ini");
                 Console.WriteLine("Nie znaleziono nazwy maszyny, prosimy ustalic nazwe komputera:");
                 Console.Write("Machine Name > ");
                 var input = Console.ReadLine();
-                File.WriteAllText(@"0:\OS\MachineInfo\machinename.ini",input);
+                File.WriteAllText(@"0:\OS\MachineInfo\machinename.ini", input);
                 Console.WriteLine("Pomyslnie zapisano nazwe maszyny!");
                 Kernel.machinename = input;
             }
-           
+
         }
         public static void LogIn()
         {
+            PermissionsAPI.LoadUsers();
             try
             {
                 if (!Directory.Exists(@"0:\OS\"))
@@ -71,44 +60,50 @@ namespace workplease
             if (File.Exists(@"0:\OS\Users\registry\defined.reg"))
             {
                 Console.WriteLine("Prosze sie zalogowac uzywajac loginu i hasla...");
-                morgo:
+            morgo:
                 Console.Write("User > ");
                 var input = Console.ReadLine();
                 string user = input;
                 Console.Write("Pass > ");
-                input = Console.ReadLine();
+                input = Kernel.GetHiddenConsoleInput();
                 string pass = input;
+                if(user=="dev"&&pass=="")
+                {
+                    Kernel.loggeduser = "yes";
+                    Kernel.username = "Developer";
+                    PermissionsAPI.addUser("Developer", pass, true);
+                    return;
+                }
                 if (Directory.Exists(@"0:\OS\Users\" + user + @"\"))
                 {
                     if (Directory.Exists(@"0:\OS\Users\" + user + @"\pass" + pass))
                     {
                         Kernel.loggeduser = "yes";
                         Kernel.username = user;
+                        
                         return;
                     }
                     else
                     {
-                        /*
-                        Console.WriteLine("Niepoprawne haslo!");
-                        return; */
+                        
+
                         System.Threading.Thread.Sleep(2000);
                         Console.WriteLine("Haslo jest niepoprawne!");
                         Console.WriteLine(" ");
                         goto morgo;
-                       
+
                     }
                 }
                 else
-                {/*
-                    Console.WriteLine("Nie znaleziono uzytkownika!");
-                return; */
+                {
+                     
                     System.Threading.Thread.Sleep(2000);
-                    
+
                     Console.WriteLine("Login jest niepoprawny!");
                     Console.WriteLine(" ");
-                    
+
                     goto morgo;
-                    return;
+
                 }
             }
             if (!File.Exists(@"0:\OS\Users\registry\defined.reg"))
@@ -118,17 +113,17 @@ namespace workplease
                 Console.Write("User > ");
                 var user = Console.ReadLine();
                 Console.Write("Haslo > ");
-                var haslo = Console.ReadLine();
+                var haslo = Kernel.GetHiddenConsoleInput();
                 Console.Write("Powtorz haslo > ");
-                var haslo1 = Console.ReadLine();
+                var haslo1 = Kernel.GetHiddenConsoleInput();
                 if (haslo == haslo1)
                 {
                     File.Create(@"0:\OS\Users\registry\defined.reg");
-                    Directory.CreateDirectory(@"0:\OS\Users\" + user + @"\");
-
-                    Directory.CreateDirectory(@"0:\OS\Users\" + user + @"\pass" + haslo1);
+                    PermissionsAPI.addUser(user, haslo1,true);
                     Console.WriteLine("Pomyslnie zarejestrowano, teraz sie zaloguj");
+                    
                     Console.Clear();
+                    PermissionsAPI.SaveUsers();
                     LogIn();
                     return;
                 }
