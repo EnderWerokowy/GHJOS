@@ -5,6 +5,7 @@ Nie możesz również dystrybutować/sprzedawać zmodyfikowanego lub czystego sy
 Nie możesz przywłaszczywać sobie tego kodu, autorem jest Werokowy.
 Jeżeli modyfikujesz system i potrzebne są dodatkowe informacje, umieść je PONIŻEJ!
 
+Autorem kontynuacji od kwietnia 2023 jest zegar
 
 Dla większego zrozumienia, projekt GHJOS jest napisany w C# na podstawie biblioteki Cosmos
 Wymaga on systemu FAT/FAT32 linka do pobrania wirtualnego dysku zamieszczam tutaj:
@@ -16,7 +17,7 @@ z formatem fat32 i fat. Jesli dysk nie bedzie odpowiedni system cie o tym poinfo
 
 
 
-Copyright ©️ GHJEUAM.TK 2022. All rights reserved
-Project owned by Werokowy, and GHJ™️ Group
+Copyright ©️ LEGENDMC.PL 2022-2023. All rights reserved
+Project created by Werokowy, owned by zegar and GHJ™️ Group
 
-W razie wszelkich problemow skontaktuj sie ze mna na moim Discordzie (https://discord.gg/MNnqEMqY lub https://discord.gg/3arPcEGk32) lub na maila: ghjeuam@gmail.com (wtedy proszę uzbroić się w cierpliwość)
+W razie wszelkich problemow skontaktuj sie ze mna na Discordzie: zegar420 lub https://discord.gg/7hPhy5vvDe 
