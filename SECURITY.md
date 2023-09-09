@@ -5,13 +5,13 @@
 Some versions are no longer supported by us and bugs reported on them will be closed immediately!
 
 | Version | Supported |
-
-| Lalest | :white_check_mark: |
-| Origin 3.6 LTS (May 2023) | ✅ | 
-| Origin 3.5 LTS (September 2022) | :white_check_mark: |
 | ------- | ------------------ |
+| Lalest (May 2023) | :white_check_mark: |
+| Origin 3.6 LTS (May 2023) | :white_check_mark: | 
+| Origin 3.5 LTS (September 2022) | :white_check_mark: |
 | < Origin 3.5 | :x: |
 | Beta 2.9x | :x: |
+
 
 ## Error Reporting
 
