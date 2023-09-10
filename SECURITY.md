@@ -6,7 +6,7 @@ Some versions are no longer supported by us and bugs reported on them will be cl
 
 | Version | Supported |
 | ------- | ------------------ |
-| Lalest (May 2023) | :white_check_mark: |
+| Latest (May 2023) | :white_check_mark: |
 | Origin 3.6 LTS (May 2023) | :white_check_mark: | 
 | Origin 3.5 LTS (September 2022) | :white_check_mark: |
 | < Origin 3.5 | :x: |
